@@ -13,7 +13,26 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS for top banner
+st.markdown("""
+    <style>
+        .top-banner {
+            background-color: #003366;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Display Developer Credit at the Top
+st.markdown('<div class="top-banner">Developed by Arjun Pesaru</div>', unsafe_allow_html=True)
+
+# Custom CSS for styling elements
 st.markdown("""
 <style>
     .diagnosis {
@@ -46,6 +65,9 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 diabetes_model = pickle.load(open(f'{working_dir}/saved_models/diabetes_model.sav', 'rb'))
 heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_disease_model.sav', 'rb'))
 parkinsons_model = pickle.load(open(f'{working_dir}/saved_models/parkinsons_model.sav', 'rb'))
+
+# (Rest of the application logic continues as before)
+
 
 def create_radar_chart(values, categories, title):
     fig = go.Figure()
